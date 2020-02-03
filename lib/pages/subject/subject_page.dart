@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bookkeeping/pages/home/home_controller.dart';
 import 'package:bookkeeping/pages/subject/subject_controller.dart';
+import 'package:bookkeeping/pages/subject/subject_skeleton.dart';
 import 'package:bookkeeping/widget/switcher/state_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -91,6 +92,7 @@ class SubjectPageState extends State<SubjectPage> {
   /// 渲染内容部分（科目列表）
   Widget renderContent() {
     return StateSwitcher(
+      skeleton: SubjectSkeleton(),
       pageState: _controller.switchState(),
       onRetry: () => _controller.onRefresh(),
       child: EasyRefresh(
@@ -98,6 +100,7 @@ class SubjectPageState extends State<SubjectPage> {
         onRefresh: () => _controller.onRefresh(),
         header: MaterialHeader(),
         child: GridView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 2.0,
@@ -116,7 +119,7 @@ class SubjectPageState extends State<SubjectPage> {
     return InkWell(
       onTap: () {},
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blue.shade200, width: 1),
           borderRadius: BorderRadius.circular(5),

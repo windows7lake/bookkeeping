@@ -43,6 +43,8 @@ dependencies:
   image_cropper: ^1.2.0
   # Date time format
   date_format: ^1.0.8
+  # skeleton support
+  shimmer: ^1.0.1
 
 dev_dependencies:
   flutter_test:

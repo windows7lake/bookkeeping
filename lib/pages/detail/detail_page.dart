@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bookkeeping/pages/detail/detail_controller.dart';
+import 'package:bookkeeping/pages/detail/detail_skeleton.dart';
 import 'package:bookkeeping/widget/switcher/state_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/ball_pulse_footer.dart';
@@ -93,6 +94,7 @@ class DetailPageState extends State<DetailPage> {
   /// 渲染内容部分（明细列表）
   Widget renderContent() {
     return StateSwitcher(
+      skeleton: DetailSkeleton(),
       pageState: _controller.switchState(),
       onRetry: () => _controller.onRefresh(),
       child: EasyRefresh(

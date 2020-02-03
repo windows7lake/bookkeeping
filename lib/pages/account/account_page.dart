@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bookkeeping/pages/account/account_controller.dart';
+import 'package:bookkeeping/pages/account/account_skeleton.dart';
 import 'package:bookkeeping/pages/home/home_controller.dart';
 import 'package:bookkeeping/widget/switcher/state_switcher.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +89,7 @@ class AccountPageState extends State<AccountPage> {
   /// 渲染内容部分（账户列表）
   Widget renderContent() {
     return StateSwitcher(
+      skeleton: AccountSkeleton(),
       pageState: _controller.switchState(),
       onRetry: () => _controller.onRefresh(),
       child: EasyRefresh(
