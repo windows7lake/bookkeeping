@@ -1,7 +1,6 @@
 import 'package:bookkeeping/cache/db/db_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
-import 'package:bookkeeping/pages/subject/subject_skeleton.dart';
 import 'package:bookkeeping/provider/provider_config.dart';
 import 'package:bookkeeping/routes/route_manager.dart';
 import 'package:flutter/material.dart';

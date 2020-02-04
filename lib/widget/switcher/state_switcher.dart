@@ -33,38 +33,48 @@ class _StateSwitcherState extends State<StateSwitcher> {
   @override
   void initState() {
     super.initState();
+
+    /// 网络连接状态变化
     _subscription = new Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
-      if (result == ConnectivityResult.mobile) {
-        setNetworkState(PageState.content);
-      } else if (result == ConnectivityResult.wifi) {
-        setNetworkState(PageState.content);
-      } else {
-        setNetworkState(PageState.netError);
+      switch (result) {
+        case ConnectivityResult.mobile:
+        case ConnectivityResult.wifi:
+          setNetworkState(PageState.content);
+          onRetry();
+          break;
+        default:
+          setNetworkState(PageState.netError);
+          break;
       }
-      onRetry();
     });
   }
 
   /// 更新网络连接状态
   void setNetworkState(PageState pageState) {
+    if (pageState == PageState.none) return;
     setState(() => _pageState = pageState);
+
+    /// 此处用于将_pageState重置为none
+    Future.delayed(
+      const Duration(seconds: 1),
+      () => _pageState = PageState.none,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    final state =
-        (_pageState == PageState.netError) ? _pageState : widget.pageState;
     return Material(
       type: MaterialType.transparency,
-      child: renderStatePage(state),
+      child: renderStatePage(
+        _pageState == PageState.none ? widget.pageState : _pageState,
+      ),
     );
   }
 
   /// 根据状态值渲染对应的页面
   Widget renderStatePage(PageState pageState) {
-    LogExt.log("===== 页面状态 => ${pageState.toString()} =====");
     switch (pageState) {
 
       /// 加载中...
@@ -117,7 +127,7 @@ class _StateSwitcherState extends State<StateSwitcher> {
     if (widget.onRetry == null) return;
     setNetworkState(PageState.loading);
     Future.delayed(
-      const Duration(milliseconds: 300),
+      const Duration(seconds: 1),
       () => widget.onRetry(),
     );
   }
@@ -129,4 +139,4 @@ class _StateSwitcherState extends State<StateSwitcher> {
   }
 }
 
-enum PageState { loading, empty, error, netError, content }
+enum PageState { none, loading, empty, error, netError, content }

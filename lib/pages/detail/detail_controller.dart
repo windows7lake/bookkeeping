@@ -19,7 +19,6 @@ import 'package:provider/provider.dart';
 class DetailController extends BaseController<DetailModel>
     implements BaseState {
   BuildContext _context;
-  OnLoadMoreState _onLoadMoreState;
   HomeController _homeController;
 
   DetailController() {
@@ -247,14 +246,9 @@ class DetailController extends BaseController<DetailModel>
     notifyListeners();
   }
 
-  /// 设置加载更多状态回调
-  void setLoadMoreState(OnLoadMoreState onLoadMoreState) {
-    this._onLoadMoreState = onLoadMoreState;
-  }
-
   /// 加载更多状态设置
   void onLoadMoreState(bool noMore) {
-    if (_onLoadMoreState != null) _onLoadMoreState(noMore);
+    model.refreshController.finishLoad(success: true, noMore: noMore);
   }
 
   /// 刷新列表
@@ -287,5 +281,3 @@ class DetailController extends BaseController<DetailModel>
     return PageState.content;
   }
 }
-
-typedef OnLoadMoreState = void Function(bool noMore);

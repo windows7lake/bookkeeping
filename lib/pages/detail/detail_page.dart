@@ -34,10 +34,6 @@ class DetailPageState extends State<DetailPage> {
       ..setContext(context);
     if (_controller != this._controller) {
       this._controller = _controller;
-      this._controller.setLoadMoreState((noMore) {
-        _controller.model.refreshController
-            .finishLoad(success: true, noMore: noMore);
-      });
     }
   }
 
