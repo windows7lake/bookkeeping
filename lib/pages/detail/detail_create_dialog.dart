@@ -106,10 +106,16 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
           ? DateTime.now()
           : DateTime.parse(widget.detailBean?.updatedAt);
       widget.amountEditingController?.text =
-          "${widget.detailBean?.amount ?? ''}";
+          formatMoney(widget.detailBean?.amount);
       widget.remarkEditingController?.text =
           "${widget.detailBean?.remark ?? ''}";
     }
+  }
+
+  /// 格式化金额
+  String formatMoney(int money) {
+    if (money == null) return "";
+    return "${money.toDouble() / 100}";
   }
 
   @override

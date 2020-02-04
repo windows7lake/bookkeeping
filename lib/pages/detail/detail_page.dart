@@ -113,7 +113,7 @@ class DetailPageState extends State<DetailPage> {
   Widget renderListItem(int position) {
     final itemData = _controller.model.list[position];
     return InkWell(
-      onTap: () => _controller.onItemClick(itemData),
+      onTap: () => _controller.onItemClick(position, itemData),
       child: Padding(
         padding: EdgeInsets.all(15),
         child: Stack(children: <Widget>[
@@ -126,7 +126,7 @@ class DetailPageState extends State<DetailPage> {
                 style: textStyleContent,
               ),
               Text(
-                "金额：￥${itemData?.amount ?? ""}",
+                "金额：￥${_controller.formatMoney(itemData?.amount)}",
                 style: textStyleContent,
               ),
               Text(

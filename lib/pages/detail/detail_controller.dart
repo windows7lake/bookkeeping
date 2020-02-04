@@ -9,6 +9,7 @@ import 'package:bookkeeping/pages/home/home_controller.dart';
 import 'package:bookkeeping/provider/base_controller.dart';
 import 'package:bookkeeping/provider/base_state.dart';
 import 'package:bookkeeping/util/dialog_ext.dart';
+import 'package:bookkeeping/util/regex_ext.dart';
 import 'package:bookkeeping/util/toast_ext.dart';
 import 'package:bookkeeping/widget/dialog/loading_dialog.dart';
 import 'package:bookkeeping/widget/switcher/state_switcher.dart';
@@ -62,7 +63,7 @@ class DetailController extends BaseController<DetailModel>
         "destAccountId": model.destAccountSelected?.id ?? 0,
         "subjectId": model.subjectSelected?.id ?? 0,
         "updatedAt": model.dateTime?.toUtc()?.toIso8601String() ?? "",
-        "amount": model.amountEditingController.text,
+        "amount": double.parse(model.amountEditingController.text) * 100,
         "remark": model.remarkEditingController.text,
       },
       callBack: (data) {
@@ -71,6 +72,37 @@ class DetailController extends BaseController<DetailModel>
         // json数据解析并添加到数据列表
         var detailBean = DetailBean.fromJson(data);
         model.list.add(detailBean);
+        model.amountEditingController.clear();
+        model.remarkEditingController.clear();
+
+        notifyListeners();
+      },
+      errorCallBack: (error) {
+        ToastExt.show(error.toString());
+      },
+      commonCallBack: () => DialogExt.instance.hideDialog(_context),
+    );
+  }
+
+  /// 修改明细
+  void editDetail(int position, int id) {
+    HttpRequest.getInstance().put(
+      Api.DETAIL + "/$id",
+      rawData: {
+        "userId": SpManager.getInt(SpParams.userId),
+        "sourceAccountId": model.sourceAccountSelected?.id ?? 0,
+        "destAccountId": model.destAccountSelected?.id ?? 0,
+        "subjectId": model.subjectSelected?.id ?? 0,
+        "updatedAt": model.dateTime?.toUtc()?.toIso8601String() ?? "",
+        "amount": double.parse(model.amountEditingController.text) * 100,
+        "remark": model.remarkEditingController.text,
+      },
+      callBack: (data) {
+        DialogExt.instance.hideDialog(_context);
+
+        // json数据解析并添加到数据列表
+        var detailBean = DetailBean.fromJson(data);
+        model.list[position] = detailBean;
         model.amountEditingController.clear();
         model.remarkEditingController.clear();
 
@@ -144,6 +176,7 @@ class DetailController extends BaseController<DetailModel>
           model.subjectSelected = subjectSelected;
           model.dateTime = dateTime;
           checkAndSubmitData();
+          createDetail();
         },
         onCreateItemClick: (index) {
           // 此处的index和Drawer中账户和科目所处的位置相对应
@@ -168,8 +201,11 @@ class DetailController extends BaseController<DetailModel>
       ToastExt.show("金额不能为空");
       return;
     }
+    if (!RegexExt.isMoney(model.amountEditingController.text)) {
+      ToastExt.show("金额只能精确到小数点后两位");
+      return;
+    }
     DialogExt.instance.showNewDialog(_context, LoadingDialog());
-    createDetail();
   }
 
   /// 获取账户信息
@@ -202,7 +238,7 @@ class DetailController extends BaseController<DetailModel>
   }
 
   /// Item点击
-  void onItemClick(DetailBean detailBean) async {
+  void onItemClick(int position, DetailBean detailBean) async {
     await getSubjectData();
     await getAccountData();
     DialogExt.instance.showNewDialog(
@@ -220,6 +256,7 @@ class DetailController extends BaseController<DetailModel>
           model.subjectSelected = subjectSelected;
           model.dateTime = dateTime;
           checkAndSubmitData();
+          editDetail(position, detailBean.id);
         },
         onCreateItemClick: (index) {
           // 此处的index和Drawer中账户和科目所处的位置相对应
@@ -228,6 +265,12 @@ class DetailController extends BaseController<DetailModel>
       ),
       dismiss: true,
     );
+  }
+
+  /// 格式化金额
+  String formatMoney(int money) {
+    if (money == null) return "";
+    return "${money.toDouble() / 100}";
   }
 
   /// 获取头像路径

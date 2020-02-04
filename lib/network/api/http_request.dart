@@ -159,6 +159,8 @@ class HttpRequest {
   void put(
     String url, {
     Map<String, dynamic> params,
+    Map<String, dynamic> formData,
+    Map<String, dynamic> rawData,
     Function callBack,
     Function errorCallBack,
     Function commonCallBack,
@@ -170,6 +172,8 @@ class HttpRequest {
       url,
       method: PUT,
       params: params,
+      formData: formData,
+      rawData: rawData,
       callBack: callBack,
       errorCallBack: errorCallBack,
       commonCallBack: commonCallBack,
@@ -314,7 +318,26 @@ class HttpRequest {
           if (newParams != null && newParams.isNotEmpty) {
             response = await _client.put(
               url,
-              queryParameters: newParams,
+              data: newParams,
+              options: Options(
+                contentType: "application/x-www-form-urlencoded",
+              ),
+              onSendProgress: progressCallBack,
+              cancelToken: token,
+            );
+          } else if (formData != null && formData.isNotEmpty) {
+            response = await _client.put(
+              url,
+              data: FormData.fromMap(formData),
+              onSendProgress: progressCallBack,
+              cancelToken: token,
+            );
+          } else if (rawData != null && rawData.isNotEmpty) {
+            response = await _client.put(
+              url,
+              data: json.encode(rawData),
+              options: Options(contentType: "application/json"),
+              onSendProgress: progressCallBack,
               cancelToken: token,
             );
           } else {
