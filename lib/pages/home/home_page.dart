@@ -34,13 +34,16 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       key: _controller.model.scaffoldKey,
       drawer: renderDrawer(),
-      body: IndexedStack(
-        index: _controller.model.selectedIndex,
-        children: <Widget>[
-          ProviderConfig.instance.detailPage, // 明细
-          ProviderConfig.instance.accountPage, // 账户
-          ProviderConfig.instance.subjectPage, // 科目
-        ],
+      body: WillPopScope(
+        onWillPop: () => _controller.onBackKeyClick(),
+        child: IndexedStack(
+          index: _controller.model.selectedIndex,
+          children: <Widget>[
+            ProviderConfig.instance.detailPage, // 明细
+            ProviderConfig.instance.accountPage, // 账户
+            ProviderConfig.instance.subjectPage, // 科目
+          ],
+        ),
       ),
     );
   }
@@ -55,7 +58,7 @@ class HomePageState extends State<HomePage> {
           /// 头像和昵称
           Container(
             height: 150,
-            color: Colors.blue,
+            color: Theme.of(context).accentColor,
             child: Row(children: <Widget>[
               Padding(padding: EdgeInsets.only(left: 20)),
               ClipOval(
@@ -92,6 +95,12 @@ class HomePageState extends State<HomePage> {
             title: Text("科目"),
             selected: selectedIndex == 2,
             onTap: () => _controller.onDrawerItemSelected(2),
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text("设置"),
+            selected: selectedIndex == 3,
+            onTap: () => _controller.onDrawerItemSelected(3),
           ),
         ],
       ),

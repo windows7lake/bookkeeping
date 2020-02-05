@@ -1,6 +1,8 @@
 import 'package:bookkeeping/cache/db/db_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/pages/setting/locale_controller.dart';
+import 'package:bookkeeping/pages/setting/theme_controller.dart';
 import 'package:bookkeeping/provider/provider_config.dart';
 import 'package:bookkeeping/routes/route_manager.dart';
 import 'package:flutter/material.dart';
@@ -14,30 +16,36 @@ void main() async {
   // 存储相关配置项初始化
   await SpManager.getInstance();
   await DBManager.getDatabase();
-  runApp(MyApp());
+  runApp(ProviderConfig.instance.getGlobal(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-        ),
-        child: initPage(),
-      ),
-      localizationsDelegates: const [
+    return Consumer2<ThemeController, LocaleController>(
+        builder: (_, themeController, localeController, child) {
+      return MaterialApp(
+        theme: themeController.themeData(),
+        darkTheme: themeController.themeData(platformDarkMode: true),
+        locale: localeController.locale,
+        localizationsDelegates: const [
 //        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
 //      supportedLocales: S.delegate.supportedLocales,
-      navigatorObservers: [RouteManager.instance],
-      routes: RouteManager.configRoutes,
-    );
+        navigatorObservers: [RouteManager.instance],
+        routes: RouteManager.configRoutes,
+        home: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+          ),
+          child: initPage(),
+        ),
+      );
+    });
   }
 
   ChangeNotifierProvider initPage() {

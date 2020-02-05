@@ -41,24 +41,20 @@ class DetailCreateDialog extends StatefulWidget {
 }
 
 class DetailCreateDialogState extends State<DetailCreateDialog> {
-  final TextStyle textStyleLabel = new TextStyle(
-    color: Colors.blue,
-    fontSize: 14.0,
-  );
-  final TextStyle textStyleEdit = new TextStyle(
+  final TextStyle textStyleEdit = TextStyle(
     color: Colors.black,
     fontSize: 14.0,
   );
-  final TextStyle textStyleEditHint = new TextStyle(
+  final TextStyle textStyleEditHint = TextStyle(
     color: Colors.grey.shade400,
     fontSize: 14.0,
   );
-  final TextStyle textStyleTitle = new TextStyle(
+  final TextStyle textStyleTitle = TextStyle(
     color: Colors.white,
     fontSize: 18.0,
     fontWeight: FontWeight.w600,
   );
-  final TextStyle textStyleBtn = new TextStyle(
+  final TextStyle textStyleBtn = TextStyle(
     color: Colors.white,
     fontSize: 14.0,
   );
@@ -173,7 +169,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(4.0)),
-        color: Colors.blue,
+        color: Theme.of(context).accentColor,
       ),
       child: Row(children: <Widget>[
         Icon(Icons.border_color, color: Colors.white, size: 20),
@@ -193,7 +189,13 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(children: <Widget>[
-        Text("科目：", style: textStyleLabel),
+        Text(
+          "科目：",
+          style: TextStyle(
+            color: Theme.of(context).accentColor,
+            fontSize: 14.0,
+          ),
+        ),
         Expanded(
           child: DropdownButton<Subject>(
             value: subjectSelected,
@@ -201,7 +203,10 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
             iconSize: 24,
             elevation: 16,
             itemHeight: 55,
-            underline: Container(height: 1, color: Colors.blue),
+            underline: Container(
+              height: 1,
+              color: Theme.of(context).accentColor,
+            ),
             onChanged: (Subject value) {
               subjectSelected = value;
               setState(() {});
@@ -232,7 +237,13 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(children: <Widget>[
-        Text("来源账户：", style: textStyleLabel),
+        Text(
+          "来源账户：",
+          style: TextStyle(
+            color: Theme.of(context).accentColor,
+            fontSize: 14.0,
+          ),
+        ),
         Expanded(
           child: DropdownButton<Account>(
             value: sourceAccountSelected,
@@ -240,7 +251,10 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
             iconSize: 24,
             elevation: 16,
             itemHeight: 55,
-            underline: Container(height: 1, color: Colors.blue),
+            underline: Container(
+              height: 1,
+              color: Theme.of(context).accentColor,
+            ),
             onChanged: (Account value) {
               sourceAccountSelected = value;
               setState(() {});
@@ -271,7 +285,13 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(children: <Widget>[
-        Text("目标账户：", style: textStyleLabel),
+        Text(
+          "目标账户：",
+          style: TextStyle(
+            color: Theme.of(context).accentColor,
+            fontSize: 14.0,
+          ),
+        ),
         Expanded(
           child: DropdownButton<Account>(
             value: destAccountSelected,
@@ -279,7 +299,10 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
             iconSize: 24,
             elevation: 16,
             itemHeight: 55,
-            underline: Container(height: 1, color: Colors.blue),
+            underline: Container(
+              height: 1,
+              color: Theme.of(context).accentColor,
+            ),
             onChanged: (Account value) {
               destAccountSelected = value;
               setState(() {});
@@ -307,7 +330,13 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("日期：", style: textStyleLabel),
+          Text(
+            "日期：",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+              fontSize: 14.0,
+            ),
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -338,7 +367,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
                   margin: EdgeInsets.only(top: 10),
                   height: 1,
                   width: double.infinity,
-                  color: Colors.blue,
+                  color: Theme.of(context).accentColor,
                 ),
               ],
             ),
@@ -353,23 +382,29 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Row(children: <Widget>[
-        Text("金额：", style: textStyleLabel),
+        Text(
+          "金额：",
+          style: TextStyle(
+            color: Theme.of(context).accentColor,
+            fontSize: 14.0,
+          ),
+        ),
         Expanded(
           child: TextField(
             style: textStyleEdit,
             autofocus: false,
             maxLines: 1,
-            cursorColor: Colors.blue,
+            cursorColor: Theme.of(context).accentColor,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
               hintText: '请输入金额（必填）',
               hintStyle: textStyleEditHint,
               border: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
+                borderSide: BorderSide(color: Theme.of(context).accentColor),
               ),
               focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
+                borderSide: BorderSide(color: Theme.of(context).accentColor),
               ),
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 15,
@@ -394,22 +429,28 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(top: 5),
-            child: Text("备注：", style: textStyleLabel),
+            child: Text(
+              "备注：",
+              style: TextStyle(
+                color: Theme.of(context).accentColor,
+                fontSize: 14.0,
+              ),
+            ),
           ),
           Expanded(
             child: TextField(
               style: textStyleEdit,
               autofocus: false,
               maxLines: 3,
-              cursorColor: Colors.blue,
+              cursorColor: Theme.of(context).accentColor,
               decoration: InputDecoration(
                 hintText: '请输入备注（可选）',
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: BorderSide(color: Theme.of(context).accentColor),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: BorderSide(color: Theme.of(context).accentColor),
                 ),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 15,
@@ -435,7 +476,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(4.0)),
-        color: Colors.blue,
+        color: Theme.of(context).accentColor,
       ),
       child: Row(children: <Widget>[
         Expanded(
@@ -483,7 +524,13 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("$label：", style: textStyleLabel),
+          Text(
+            "$label：",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+              fontSize: 14.0,
+            ),
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -502,7 +549,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
                   margin: EdgeInsets.only(top: 10),
                   height: 1,
                   width: double.infinity,
-                  color: Colors.blue,
+                  color: Theme.of(context).accentColor,
                 ),
               ],
             ),

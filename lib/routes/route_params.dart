@@ -1,3 +1,4 @@
+import 'package:bookkeeping/pages/setting/setting_page.dart';
 import 'package:bookkeeping/provider/provider_config.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class RouteParams {
     RoutePageType.detail: ProviderConfig.instance.detailPage,
     RoutePageType.account: ProviderConfig.instance.accountPage,
     RoutePageType.subject: ProviderConfig.instance.subjectPage,
+    RoutePageType.setting: SettingPage(),
   };
 }
 
@@ -20,4 +22,5 @@ enum RoutePageType {
   detail, // 明细
   account, // 账户
   subject, // 科目
+  setting, // 设置
 }

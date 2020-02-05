@@ -6,10 +6,6 @@ typedef OnAddClick = Function();
 
 /// 账户创建弹出框 <br/>
 class AccountCreateDialog extends Dialog {
-  final TextStyle textStyleLabel = new TextStyle(
-    color: Colors.blue,
-    fontSize: 14.0,
-  );
   final TextStyle textStyleEdit = new TextStyle(
     color: Colors.black,
     fontSize: 14.0,
@@ -84,7 +80,7 @@ class AccountCreateDialog extends Dialog {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(top: Radius.circular(4.0)),
-          color: Colors.blue,
+          color: Theme.of(context).accentColor,
         ),
         child: Row(children: <Widget>[
           Icon(Icons.border_color, color: Colors.white, size: 20),
@@ -97,22 +93,28 @@ class AccountCreateDialog extends Dialog {
       Padding(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
         child: Row(children: <Widget>[
-          Text("类型：", style: textStyleLabel),
+          Text(
+            "类型：",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+              fontSize: 14.0,
+            ),
+          ),
           Expanded(
             child: TextField(
               style: textStyleEdit,
               autofocus: false,
               maxLines: 1,
-              cursorColor: Colors.blue,
+              cursorColor: Theme.of(context).accentColor,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
                 hintText: '请输入类型（必填）',
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: BorderSide(color: Theme.of(context).accentColor),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: BorderSide(color: Theme.of(context).accentColor),
                 ),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 15,
@@ -131,22 +133,28 @@ class AccountCreateDialog extends Dialog {
       Padding(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
         child: Row(children: <Widget>[
-          Text("名称：", style: textStyleLabel),
+          Text(
+            "名称：",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+              fontSize: 14.0,
+            ),
+          ),
           Expanded(
             child: TextField(
               style: textStyleEdit,
               autofocus: false,
               maxLines: 1,
-              cursorColor: Colors.blue,
+              cursorColor: Theme.of(context).accentColor,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
                 hintText: '请输入名称（必填）',
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: BorderSide(color: Theme.of(context).accentColor),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: BorderSide(color: Theme.of(context).accentColor),
                 ),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 15,
@@ -169,22 +177,32 @@ class AccountCreateDialog extends Dialog {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 5),
-              child: Text("描述：", style: textStyleLabel),
+              child: Text(
+                "描述：",
+                style: TextStyle(
+                  color: Theme.of(context).accentColor,
+                  fontSize: 14.0,
+                ),
+              ),
             ),
             Expanded(
               child: TextField(
                 style: textStyleEdit,
                 autofocus: false,
                 maxLines: 3,
-                cursorColor: Colors.blue,
+                cursorColor: Theme.of(context).accentColor,
                 decoration: InputDecoration(
                   hintText: '请输入描述（可选）',
                   hintStyle: textStyleEditHint,
                   border: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue),
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                    ),
                   ),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue),
+                    borderSide: BorderSide(
+                      color: Theme.of(context).accentColor,
+                    ),
                   ),
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 15,
@@ -208,7 +226,7 @@ class AccountCreateDialog extends Dialog {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(4.0)),
-          color: Colors.blue,
+          color: Theme.of(context).accentColor,
         ),
         child: Row(children: <Widget>[
           Expanded(

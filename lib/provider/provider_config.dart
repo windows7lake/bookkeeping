@@ -4,6 +4,8 @@ import 'package:bookkeeping/pages/detail/detail_controller.dart';
 import 'package:bookkeeping/pages/detail/detail_page.dart';
 import 'package:bookkeeping/pages/home/home_controller.dart';
 import 'package:bookkeeping/pages/home/home_page.dart';
+import 'package:bookkeeping/pages/setting/locale_controller.dart';
+import 'package:bookkeeping/pages/setting/theme_controller.dart';
 import 'package:bookkeeping/pages/subject/subject_controller.dart';
 import 'package:bookkeeping/pages/subject/subject_page.dart';
 import 'package:bookkeeping/pages/user/user_controller.dart';
@@ -28,7 +30,14 @@ class ProviderConfig {
   /// 公共
   MultiProvider getGlobal(Widget child) {
     return MultiProvider(
-      providers: [],
+      providers: [
+        ChangeNotifierProvider<ThemeController>(
+          create: (context) => ThemeController(),
+        ),
+        ChangeNotifierProvider<LocaleController>(
+          create: (context) => LocaleController(),
+        ),
+      ],
       child: child,
     );
   }

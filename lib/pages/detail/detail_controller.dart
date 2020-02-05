@@ -15,6 +15,7 @@ import 'package:bookkeeping/widget/dialog/loading_dialog.dart';
 import 'package:bookkeeping/widget/switcher/state_switcher.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DetailController extends BaseController<DetailModel>

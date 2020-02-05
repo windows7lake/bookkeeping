@@ -51,6 +51,7 @@ class UserPageState extends State<UserPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Padding(padding: EdgeInsets.only(top: 80)),
+
           /// 标题
           GestureDetector(
             onTap: () => _controller.onTitleClick(),
@@ -91,10 +92,13 @@ class UserPageState extends State<UserPage> {
               maxLines: 1,
               cursorColor: Colors.white,
               textInputAction: TextInputAction.done,
-              decoration: new InputDecoration(
+              decoration: InputDecoration(
                 hintText: '昵称',
                 hintStyle: textStyleNameHint,
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide.none,
+                ),
               ),
               inputFormatters: [
                 LengthLimitingTextInputFormatter(15),
@@ -102,12 +106,12 @@ class UserPageState extends State<UserPage> {
               controller: _controller.model.editingController,
             ),
           ),
+          Padding(padding: EdgeInsets.only(top: 50)),
 
           /// 确认按钮
           InkWell(
             onTap: () => _controller.onConfirmBtnClick(),
             child: Container(
-              margin: EdgeInsets.only(top: 50),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(80),

@@ -71,7 +71,7 @@ import 'package:permission_handler/permission_handler.dart';
 typedef Granted = Function();
 typedef Denied = Function();
 
-class PermissionManager {
+class PermissionExt {
   /// 权限检测：（true：权限通过   false：权限未通过）
   static Future<bool> checkPermission(PermissionGroup permission) async {
     final PermissionStatus _permissionStatus =
