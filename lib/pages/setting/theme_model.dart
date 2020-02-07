@@ -11,5 +11,5 @@ class ThemeModel {
   int themeFontIndex = 0;
 
   /// 字体选择列表
-  var fontValueList = ['system'];
+  var fontValueList = ['system', 'kuaile'];
 }

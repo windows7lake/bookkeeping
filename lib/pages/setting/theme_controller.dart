@@ -115,6 +115,8 @@ class ThemeController extends BaseController<ThemeModel> {
     switch (index) {
       case 0:
         return IntlLocalizations.of(context).autoBySystem;
+      case 1:
+        return 'ZCOOL KuaiLe';
       default:
         return '';
     }

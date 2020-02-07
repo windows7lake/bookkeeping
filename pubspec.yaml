@@ -64,5 +64,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: kuaile
+      fonts:
+        - asset: assets/fonts/ZCOOLKuaiLe-Regular.ttf
+
   assets:
     - assets/images/
