@@ -1,0 +1,399 @@
+{
+  "@@last_modified": "2020-02-07T19:36:36.256958",
+  "clickToExit": "再点击一次退出应用",
+  "@clickToExit": {
+    "description": "提示-clickToExit",
+    "type": "text",
+    "placeholders": {}
+  },
+  "none": "无",
+  "@none": {
+    "description": "提示-none",
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoBySystem": "跟随系统",
+  "@autoBySystem": {
+    "description": "标签-跟随系统",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateYear": "年",
+  "@dateYear": {
+    "description": "标签-年",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateMonth": "月",
+  "@dateMonth": {
+    "description": "标签-月",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateDay": "日",
+  "@dateDay": {
+    "description": "标签-日",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintYes": "是",
+  "@hintYes": {
+    "description": "提示-是",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintNo": "否",
+  "@hintNo": {
+    "description": "提示-否",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintAdd": "添加",
+  "@hintAdd": {
+    "description": "提示-添加",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintDelete": "删除",
+  "@hintDelete": {
+    "description": "提示-删除",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintCancel": "取消",
+  "@hintCancel": {
+    "description": "提示-取消",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintDeleteFail": "删除失败",
+  "@hintDeleteFail": {
+    "description": "提示-删除失败",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintDeleteDialogTitle": "是否确认删除",
+  "@hintDeleteDialogTitle": {
+    "description": "提示-是否确认删除",
+    "type": "text",
+    "placeholders": {}
+  },
+  "ipModifyTitle": "设置IP地址全局替换",
+  "@ipModifyTitle": {
+    "description": "IP-标题-设置IP地址全局替换",
+    "type": "text",
+    "placeholders": {}
+  },
+  "ipModifyEditHint": "例：http://172.0.0.1:44444/",
+  "@ipModifyEditHint": {
+    "description": "IP-提示-例：http://172.0.0.1:44444/",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userTitle": "个人信息设置",
+  "@userTitle": {
+    "description": "用户-标题-个人信息设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNicknameHint": "昵称",
+  "@userNicknameHint": {
+    "description": "用户-提示-昵称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNickname": "记账",
+  "@userNickname": {
+    "description": "用户-提示-记账",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintClickMore": "再点击%s次",
+  "@hintClickMore": {
+    "description": "用户-提示-点击",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleDetail": "明细",
+  "@titleDetail": {
+    "description": "标题-明细",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleAccount": "账户",
+  "@titleAccount": {
+    "description": "标题-账户",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleSubject": "科目",
+  "@titleSubject": {
+    "description": "标题-科目",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleSetting": "设置",
+  "@titleSetting": {
+    "description": "标题-设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailTitleAdd": "新增明细",
+  "@detailTitleAdd": {
+    "description": "明细-标题-新增明细",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailTitleEdit": "修改明细",
+  "@detailTitleEdit": {
+    "description": "明细-标题-修改明细",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelSubject": "科目",
+  "@detailLabelSubject": {
+    "description": "明细-标签-科目",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelAmount": "金额",
+  "@detailLabelAmount": {
+    "description": "明细-标签-金额",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelSourceAccount": "来源账户",
+  "@detailLabelSourceAccount": {
+    "description": "明细-标签-来源账户",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelDestAccount": "目标账户",
+  "@detailLabelDestAccount": {
+    "description": "明细-标签-目标账户",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelDate": "日期",
+  "@detailLabelDate": {
+    "description": "明细-标签-日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelRemark": "备注",
+  "@detailLabelRemark": {
+    "description": "明细-标签-备注",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAccount": "请先创建账户",
+  "@detailHintAccount": {
+    "description": "明细-提示-账户",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintSubject": "请先创建科目",
+  "@detailHintSubject": {
+    "description": "明细-提示-科目",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAmount": "请输入金额（必填）",
+  "@detailHintAmount": {
+    "description": "明细-提示-金额",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAmountNone": "金额不能为空",
+  "@detailHintAmountNone": {
+    "description": "明细-提示-金额不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAmountAccuracy": "金额只能精确到小数点后两位",
+  "@detailHintAmountAccuracy": {
+    "description": "明细-提示-金额精确度",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintRemark": "请输入备注（可选）",
+  "@detailHintRemark": {
+    "description": "明细-提示-备注",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountTitleAdd": "新增账户",
+  "@accountTitleAdd": {
+    "description": "账户-标题-新增账户",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountTitleEdit": "修改账户",
+  "@accountTitleEdit": {
+    "description": "账户-标题-修改账户",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountLabelType": "类型",
+  "@accountLabelType": {
+    "description": "账户-标签-类型",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountLabelName": "名称",
+  "@accountLabelName": {
+    "description": "账户-标签-名称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountLabelDesc": "描述",
+  "@accountLabelDesc": {
+    "description": "账户-标签-描述",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintType": "请输入类型（必填）",
+  "@accountHintType": {
+    "description": "账户-提示-类型",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintTypeNone": "类型不能为空",
+  "@accountHintTypeNone": {
+    "description": "账户-提示-类型",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintName": "请输入名称（必填）",
+  "@accountHintName": {
+    "description": "账户-提示-名称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintNameNone": "名称不能为空",
+  "@accountHintNameNone": {
+    "description": "账户-提示-名称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintDesc": "请输入描述（可选）",
+  "@accountHintDesc": {
+    "description": "账户-提示-描述",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectTitleAdd": "新增科目",
+  "@subjectTitleAdd": {
+    "description": "科目-标题-新增科目",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectTitleEdit": "修改科目",
+  "@subjectTitleEdit": {
+    "description": "科目-标题-修改科目",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectLabelTags": "标签",
+  "@subjectLabelTags": {
+    "description": "科目-标签-标签",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectLabelName": "名称",
+  "@subjectLabelName": {
+    "description": "科目-标签-名称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectLabelDesc": "描述",
+  "@subjectLabelDesc": {
+    "description": "科目-标签-描述",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintTags": "请输入标签（必填）",
+  "@subjectHintTags": {
+    "description": "科目-提示-标签",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintName": "请输入名称（必填）",
+  "@subjectHintName": {
+    "description": "科目-提示-名称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintDesc": "请输入描述（可选）",
+  "@subjectHintDesc": {
+    "description": "科目-提示-描述",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintTagsNone": "标签不能为空",
+  "@subjectHintTagsNone": {
+    "description": "科目-提示-标签",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintNameNone": "名称不能为空",
+  "@subjectHintNameNone": {
+    "description": "科目-提示-名称",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingFont": "字体切换",
+  "@settingFont": {
+    "description": "设置-标签-字体切换",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingLanguage": "语言切换",
+  "@settingLanguage": {
+    "description": "设置-标签-语言切换",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingTheme": "主题切换",
+  "@settingTheme": {
+    "description": "设置-标签-主题切换",
+    "type": "text",
+    "placeholders": {}
+  },
+  "takePhoto": "拍照",
+  "@takePhoto": {
+    "description": "拍照",
+    "type": "text",
+    "placeholders": {}
+  },
+  "album": "从相册中选择",
+  "@album": {
+    "description": "从相册中选择",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loading": "加载中...",
+  "@loading": {
+    "description": "加载中",
+    "type": "text",
+    "placeholders": {}
+  },
+  "empty": "无数据~",
+  "@empty": {
+    "description": "无数据",
+    "type": "text",
+    "placeholders": {}
+  },
+  "error": "请求错误，请重试",
+  "@error": {
+    "description": "请求错误",
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorNetwork": "网络连接错误，请检查后再重试~",
+  "@errorNetwork": {
+    "description": "网络连接错误",
+    "type": "text",
+    "placeholders": {}
+  }
+}

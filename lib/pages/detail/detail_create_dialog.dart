@@ -1,5 +1,6 @@
 import 'package:bookkeeping/cache/db/account_dao.dart';
 import 'package:bookkeeping/cache/db/subject_dao.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/detail/detail_bean.dart';
 import 'package:bookkeeping/util/dialog_ext.dart';
 import 'package:bookkeeping/util/screen_ext.dart';
@@ -59,7 +60,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     fontSize: 14.0,
   );
 
-  String title = "新增明细";
+  String title;
   Account sourceAccountSelected;
   Account destAccountSelected;
   Subject subjectSelected;
@@ -74,17 +75,8 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     }
     if (widget.subjectList.isNotEmpty) subjectSelected = widget.subjectList[0];
 
-    if (sourceAccountSelected == null) {
-      sourceAccountSelected = Account(name: "请先创建账户");
-      destAccountSelected = Account(name: "请先创建账户");
-    }
-    if (subjectSelected == null) {
-      subjectSelected = Subject(name: "请先创建科目");
-    }
-
     /// 如果detailBean不为空，说明是修改数据
     if (widget.detailBean != null) {
-      title = "修改明细";
       widget.accountList.forEach((accountBean) {
         if (widget.detailBean.sourceAccountId == accountBean.id) {
           sourceAccountSelected = accountBean;
@@ -108,6 +100,28 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
     }
   }
 
+  /// 初始化数据 IntlLocalizations的相关数据放在 initState 中会出错
+  void initData() {
+    if (sourceAccountSelected == null) {
+      sourceAccountSelected = Account(
+        name: IntlLocalizations.of(context).detailHintAccount,
+      );
+      destAccountSelected = Account(
+        name: IntlLocalizations.of(context).detailHintAccount,
+      );
+    }
+    if (subjectSelected == null) {
+      subjectSelected = Subject(
+        name: IntlLocalizations.of(context).detailHintSubject,
+      );
+    }
+
+    title = IntlLocalizations.of(context).detailTitleAdd;
+    if (widget.detailBean != null) {
+      title = IntlLocalizations.of(context).detailTitleEdit;
+    }
+  }
+
   /// 格式化金额
   String formatMoney(int money) {
     if (money == null) return "";
@@ -116,6 +130,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
 
   @override
   Widget build(BuildContext context) {
+    initData();
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets,
       duration: const Duration(milliseconds: 100),
@@ -181,16 +196,21 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
 
   /// 科目
   Widget renderSubject() {
-    if (subjectSelected?.name == "请先创建科目") {
-      return renderCreateItem("科目", "请先创建科目", () {
-        if (widget.onCreateItemClick != null) widget.onCreateItemClick(2);
-      });
+    if (subjectSelected?.name ==
+        IntlLocalizations.of(context).detailHintSubject) {
+      return renderCreateItem(
+        IntlLocalizations.of(context).detailLabelSubject,
+        IntlLocalizations.of(context).detailHintSubject,
+        () {
+          if (widget.onCreateItemClick != null) widget.onCreateItemClick(2);
+        },
+      );
     }
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(children: <Widget>[
         Text(
-          "科目：",
+          "${IntlLocalizations.of(context).detailLabelSubject}：",
           style: TextStyle(
             color: Theme.of(context).accentColor,
             fontSize: 14.0,
@@ -229,16 +249,21 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
 
   /// 来源账户
   Widget renderSourceAccount() {
-    if (sourceAccountSelected?.name == "请先创建账户") {
-      return renderCreateItem("来源账户", "请先创建账户", () {
-        if (widget.onCreateItemClick != null) widget.onCreateItemClick(1);
-      });
+    if (sourceAccountSelected?.name ==
+        IntlLocalizations.of(context).detailHintAccount) {
+      return renderCreateItem(
+        IntlLocalizations.of(context).detailLabelSourceAccount,
+        IntlLocalizations.of(context).detailHintAccount,
+        () {
+          if (widget.onCreateItemClick != null) widget.onCreateItemClick(1);
+        },
+      );
     }
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(children: <Widget>[
         Text(
-          "来源账户：",
+          "${IntlLocalizations.of(context).detailLabelSourceAccount}：",
           style: TextStyle(
             color: Theme.of(context).accentColor,
             fontSize: 14.0,
@@ -277,16 +302,21 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
 
   /// 目标账户
   Widget renderDestAccount() {
-    if (destAccountSelected?.name == "请先创建账户") {
-      return renderCreateItem("目标账户", "请先创建账户", () {
-        if (widget.onCreateItemClick != null) widget.onCreateItemClick(1);
-      });
+    if (destAccountSelected?.name ==
+        IntlLocalizations.of(context).detailHintAccount) {
+      return renderCreateItem(
+        IntlLocalizations.of(context).detailLabelDestAccount,
+        IntlLocalizations.of(context).detailHintAccount,
+        () {
+          if (widget.onCreateItemClick != null) widget.onCreateItemClick(1);
+        },
+      );
     }
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(children: <Widget>[
         Text(
-          "目标账户：",
+          "${IntlLocalizations.of(context).detailLabelDestAccount}：",
           style: TextStyle(
             color: Theme.of(context).accentColor,
             fontSize: 14.0,
@@ -331,7 +361,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "日期：",
+            "${IntlLocalizations.of(context).detailLabelDate}：",
             style: TextStyle(
               color: Theme.of(context).accentColor,
               fontSize: 14.0,
@@ -383,7 +413,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Row(children: <Widget>[
         Text(
-          "金额：",
+          "${IntlLocalizations.of(context).detailLabelAmount}：",
           style: TextStyle(
             color: Theme.of(context).accentColor,
             fontSize: 14.0,
@@ -398,7 +428,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              hintText: '请输入金额（必填）',
+              hintText: IntlLocalizations.of(context).detailHintAmount,
               hintStyle: textStyleEditHint,
               border: UnderlineInputBorder(
                 borderSide: BorderSide(color: Theme.of(context).accentColor),
@@ -430,7 +460,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
           Padding(
             padding: EdgeInsets.only(top: 5),
             child: Text(
-              "备注：",
+              "${IntlLocalizations.of(context).detailLabelRemark}：",
               style: TextStyle(
                 color: Theme.of(context).accentColor,
                 fontSize: 14.0,
@@ -444,7 +474,7 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
               maxLines: 3,
               cursorColor: Theme.of(context).accentColor,
               decoration: InputDecoration(
-                hintText: '请输入备注（可选）',
+                hintText: IntlLocalizations.of(context).detailHintRemark,
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
                   borderSide: BorderSide(color: Theme.of(context).accentColor),
@@ -494,7 +524,8 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
             child: Container(
               height: 50,
               alignment: Alignment.center,
-              child: Text("添加", style: textStyleBtn),
+              child: Text(IntlLocalizations.of(context).hintAdd,
+                  style: textStyleBtn),
             ),
           ),
         ),
@@ -508,7 +539,8 @@ class DetailCreateDialogState extends State<DetailCreateDialog> {
             child: Container(
               height: 50,
               alignment: Alignment.center,
-              child: Text("取消", style: textStyleBtn),
+              child: Text(IntlLocalizations.of(context).hintCancel,
+                  style: textStyleBtn),
             ),
           ),
         ),

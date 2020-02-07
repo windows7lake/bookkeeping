@@ -1,5 +1,6 @@
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/setting/locale_mode.dart';
 import 'package:bookkeeping/provider/base_controller.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,6 @@ import 'package:flutter/material.dart';
 class LocaleController extends BaseController<LocaleModel> {
   LocaleController() {
     model = LocaleModel();
-    init();
   }
 
   void init() {
@@ -35,7 +35,7 @@ class LocaleController extends BaseController<LocaleModel> {
   static String localeName(index, context) {
     switch (index) {
       case 0:
-//        return S.of(context).autoBySystem;
+        return IntlLocalizations.of(context).autoBySystem;
       case 1:
         return '中文';
       case 2:

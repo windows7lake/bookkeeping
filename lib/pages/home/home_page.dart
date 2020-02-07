@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/home/home_controller.dart';
 import 'package:bookkeeping/provider/provider_config.dart';
 import 'package:bookkeeping/util/screen_ext.dart';
@@ -24,7 +25,8 @@ class HomePageState extends State<HomePage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     // 初始化controller
-    final _controller = Provider.of<HomeController>(context);
+    final _controller = Provider.of<HomeController>(context)
+      ..setContext(context);
     if (_controller != this._controller) this._controller = _controller;
   }
 
@@ -80,25 +82,25 @@ class HomePageState extends State<HomePage> {
           ),
           ListTile(
             leading: Icon(Icons.subject),
-            title: Text("明细"),
+            title: Text(IntlLocalizations.of(context).titleDetail),
             selected: selectedIndex == 0,
             onTap: () => _controller.onDrawerItemSelected(0),
           ),
           ListTile(
             leading: Icon(Icons.account_box),
-            title: Text("账户"),
+            title: Text(IntlLocalizations.of(context).titleAccount),
             selected: selectedIndex == 1,
             onTap: () => _controller.onDrawerItemSelected(1),
           ),
           ListTile(
             leading: Icon(Icons.assignment),
-            title: Text("科目"),
+            title: Text(IntlLocalizations.of(context).titleSubject),
             selected: selectedIndex == 2,
             onTap: () => _controller.onDrawerItemSelected(2),
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text("设置"),
+            title: Text(IntlLocalizations.of(context).titleSetting),
             selected: selectedIndex == 3,
             onTap: () => _controller.onDrawerItemSelected(3),
           ),

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/setting/theme_model.dart';
 import 'package:bookkeeping/provider/base_controller.dart';
 import 'package:bookkeeping/util/theme_ext.dart';
@@ -11,7 +12,6 @@ import 'package:flutter/material.dart';
 class ThemeController extends BaseController<ThemeModel> {
   ThemeController() {
     model = ThemeModel();
-    init();
   }
 
   void init() {
@@ -21,7 +21,7 @@ class ThemeController extends BaseController<ThemeModel> {
     model.themeColor = Colors
         .primaries[SpManager.getInt(SpParams.themeColorIndex, defaultValue: 5)];
     // 获取字体
-    model.themeFontIndex = SpManager.getInt(SpParams.themeColorIndex);
+    model.themeFontIndex = SpManager.getInt(SpParams.themeFontIndex);
   }
 
   /// 切换指定色彩
@@ -114,7 +114,7 @@ class ThemeController extends BaseController<ThemeModel> {
   static String fontName(index, context) {
     switch (index) {
       case 0:
-        return '自动';
+        return IntlLocalizations.of(context).autoBySystem;
       default:
         return '';
     }

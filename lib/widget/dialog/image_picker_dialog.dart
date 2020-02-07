@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/util/dialog_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -34,7 +35,10 @@ class ImagePickerDialog extends Dialog {
               height: 60,
               width: double.infinity,
               color: Colors.white.withAlpha(180),
-              child: Text("拍照", style: textStyle),
+              child: Text(
+                IntlLocalizations.of(context).takePhoto,
+                style: textStyle,
+              ),
             ),
           ),
           Container(
@@ -53,7 +57,10 @@ class ImagePickerDialog extends Dialog {
               height: 60,
               width: double.infinity,
               color: Colors.white.withAlpha(180),
-              child: Text("从相册中选择", style: textStyle),
+              child: Text(
+                IntlLocalizations.of(context).album,
+                style: textStyle,
+              ),
             ),
           ),
           Container(
@@ -70,7 +77,10 @@ class ImagePickerDialog extends Dialog {
               height: 60,
               width: double.infinity,
               color: Colors.white.withAlpha(180),
-              child: Text("取消", style: textStyle),
+              child: Text(
+                IntlLocalizations.of(context).hintCancel,
+                style: textStyle,
+              ),
             ),
           ),
         ]),

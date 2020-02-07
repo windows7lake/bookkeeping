@@ -1,5 +1,6 @@
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/util/dialog_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -80,7 +81,8 @@ class SetupIpDialog extends Dialog {
         child: Row(children: <Widget>[
           Icon(Icons.border_color, color: Colors.white, size: 20),
           Padding(padding: EdgeInsets.only(left: 15)),
-          Text("设置IP地址全局替换", style: textStyleTitle),
+          Text(IntlLocalizations.of(context).ipModifyTitle,
+              style: textStyleTitle),
         ]),
       ),
 
@@ -96,7 +98,7 @@ class SetupIpDialog extends Dialog {
               cursorColor: Colors.blue,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                hintText: '例：http://172.0.0.1:44444/',
+                hintText: IntlLocalizations.of(context).ipModifyEditHint,
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue),
@@ -138,7 +140,8 @@ class SetupIpDialog extends Dialog {
               child: Container(
                 height: 50,
                 alignment: Alignment.center,
-                child: Text("添加", style: textStyleBtn),
+                child: Text(IntlLocalizations.of(context).hintAdd,
+                    style: textStyleBtn),
               ),
             ),
           ),
@@ -153,7 +156,8 @@ class SetupIpDialog extends Dialog {
               child: Container(
                 height: 50,
                 alignment: Alignment.center,
-                child: Text("取消", style: textStyleBtn),
+                child: Text(IntlLocalizations.of(context).hintCancel,
+                    style: textStyleBtn),
               ),
             ),
           ),

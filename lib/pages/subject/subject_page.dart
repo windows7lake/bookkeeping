@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/home/home_controller.dart';
 import 'package:bookkeeping/pages/subject/subject_controller.dart';
 import 'package:bookkeeping/pages/subject/subject_skeleton.dart';
@@ -54,7 +55,7 @@ class SubjectPageState extends State<SubjectPage> {
       brightness: Brightness.dark,
       centerTitle: true,
       title: Text(
-        "科目",
+        IntlLocalizations.of(context).titleSubject,
         style: TextStyle(color: Colors.white),
       ),
       leading: Padding(
@@ -81,7 +82,7 @@ class SubjectPageState extends State<SubjectPage> {
         IconButton(
           icon: Icon(Icons.add, color: Colors.white),
           color: Colors.black,
-          tooltip: "新增",
+          tooltip: IntlLocalizations.of(context).hintAdd,
           onPressed: () => _controller.onAddBtnClick(),
         )
       ],
@@ -136,7 +137,8 @@ class SubjectPageState extends State<SubjectPage> {
                   style: textStyleContent,
                 ),
                 Text(
-                  "描述：${itemData?.description ?? "无"}",
+                  "${IntlLocalizations.of(context).subjectLabelDesc}"
+                  "：${itemData?.description ?? IntlLocalizations.of(context).none}",
                   style: textStyleHint,
                 ),
               ],

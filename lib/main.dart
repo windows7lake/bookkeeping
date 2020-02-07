@@ -1,6 +1,7 @@
 import 'package:bookkeeping/cache/db/db_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations_delegate.dart';
 import 'package:bookkeeping/pages/setting/locale_controller.dart';
 import 'package:bookkeeping/pages/setting/theme_controller.dart';
 import 'package:bookkeeping/provider/provider_config.dart';
@@ -29,13 +30,17 @@ class MyApp extends StatelessWidget {
         theme: themeController.themeData(),
         darkTheme: themeController.themeData(platformDarkMode: true),
         locale: localeController.locale,
-        localizationsDelegates: const [
-//        S.delegate,
+        localizationsDelegates: [
+          IntlLocalizationsDelegate(),
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-//      supportedLocales: S.delegate.supportedLocales,
+        supportedLocales: [
+          // 支持的语言类型
+          const Locale('zh', ''),
+          const Locale('en', 'US'), // English
+        ],
         navigatorObservers: [RouteManager.instance],
         routes: RouteManager.configRoutes,
         home: AnnotatedRegion<SystemUiOverlayStyle>(

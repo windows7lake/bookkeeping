@@ -1,14 +1,22 @@
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/home/home_model.dart';
 import 'package:bookkeeping/provider/base_controller.dart';
 import 'package:bookkeeping/routes/route_manager.dart';
 import 'package:bookkeeping/routes/route_params.dart';
 import 'package:bookkeeping/util/toast_ext.dart';
+import 'package:flutter/material.dart';
 
 class HomeController extends BaseController<HomeModel> {
+  BuildContext _context;
+
   HomeController() {
     model = HomeModel();
+  }
+
+  void setContext(BuildContext context) {
+    this._context = context;
   }
 
   /// 打开Drawer
@@ -56,7 +64,7 @@ class HomeController extends BaseController<HomeModel> {
         DateTime.now().difference(model.lastPressed) > Duration(seconds: 2)) {
       // 两次点击间隔超过1秒则重新计时
       model.lastPressed = DateTime.now();
-      ToastExt.show("再点击一次退出应用");
+      ToastExt.show(IntlLocalizations.of(_context).clickToExit);
       return false;
     }
     return true;

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/user/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,7 +56,10 @@ class UserPageState extends State<UserPage> {
           /// 标题
           GestureDetector(
             onTap: () => _controller.onTitleClick(),
-            child: Text("个人信息设置", style: textStyleTitle),
+            child: Text(
+              IntlLocalizations.of(context).userTitle,
+              style: textStyleTitle,
+            ),
           ),
           Padding(padding: EdgeInsets.only(top: 50)),
 
@@ -93,7 +97,7 @@ class UserPageState extends State<UserPage> {
               cursorColor: Colors.white,
               textInputAction: TextInputAction.done,
               decoration: InputDecoration(
-                hintText: '昵称',
+                hintText: IntlLocalizations.of(context).userNickname,
                 hintStyle: textStyleNameHint,
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
                 focusedBorder: UnderlineInputBorder(

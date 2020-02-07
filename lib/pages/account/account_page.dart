@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/account/account_controller.dart';
 import 'package:bookkeeping/pages/account/account_skeleton.dart';
 import 'package:bookkeeping/pages/home/home_controller.dart';
@@ -51,7 +52,7 @@ class AccountPageState extends State<AccountPage> {
       brightness: Brightness.dark,
       centerTitle: true,
       title: Text(
-        "账户",
+        IntlLocalizations.of(context).titleAccount,
         style: TextStyle(color: Colors.white),
       ),
       leading: Padding(
@@ -78,7 +79,7 @@ class AccountPageState extends State<AccountPage> {
         IconButton(
           icon: Icon(Icons.add, color: Colors.white),
           color: Colors.black,
-          tooltip: "新增",
+          tooltip: IntlLocalizations.of(context).hintAdd,
           onPressed: () => _controller.onAddBtnClick(),
         )
       ],
@@ -117,15 +118,18 @@ class AccountPageState extends State<AccountPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              "类型：${itemData?.type ?? ""}",
+              "${IntlLocalizations.of(context).accountLabelType}"
+              "：${itemData?.type ?? ""}",
               style: textStyleContent,
             ),
             Text(
-              "名称：${itemData?.name ?? ""}",
+              "${IntlLocalizations.of(context).accountLabelName}"
+              "：${itemData?.name ?? ""}",
               style: textStyleContent,
             ),
             Text(
-              "描述：${itemData?.description ?? ""}",
+              "${IntlLocalizations.of(context).accountLabelDesc}"
+              "：${itemData?.description ?? ""}",
               style: textStyleContent,
             ),
           ],

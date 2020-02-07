@@ -1,0 +1,399 @@
+{
+  "@@last_modified": "2020-02-07T19:36:36.256958",
+  "clickToExit": "Click again to exit the app",
+  "@clickToExit": {
+    "description": "Label-Exit",
+    "type": "text",
+    "placeholders": {}
+  },
+  "none": "None",
+  "@none": {
+    "description": "Hint-none",
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoBySystem": "Auto",
+  "@autoBySystem": {
+    "description": "Label-Auto",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateYear": "year",
+  "@dateYear": {
+    "description": "Label-Year",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateMonth": "month",
+  "@dateMonth": {
+    "description": "Label-Month",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateDay": "day",
+  "@dateDay": {
+    "description": "Label-Day",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintYes": "Yes",
+  "@hintYes": {
+    "description": "Hint-Yes",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintNo": "No",
+  "@hintNo": {
+    "description": "Hint-No",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintAdd": "Add",
+  "@hintAdd": {
+    "description": "Hint-Add",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintDelete": "Delete",
+  "@hintDelete": {
+    "description": "Hint-Delete",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintCancel": "Cancel",
+  "@hintCancel": {
+    "description": "Hint-Cancel",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintDeleteFail": "Delete Failed",
+  "@hintDeleteFail": {
+    "description": "Hint-Delete Failed",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintDeleteDialogTitle": "Do you want to delete?",
+  "@hintDeleteDialogTitle": {
+    "description": "Hint-Delete",
+    "type": "text",
+    "placeholders": {}
+  },
+  "ipModifyTitle": "Setup ip to replace globally",
+  "@ipModifyTitle": {
+    "description": "IP-Title-Setup ip",
+    "type": "text",
+    "placeholders": {}
+  },
+  "ipModifyEditHint": "Example：http://172.0.0.1:44444/",
+  "@ipModifyEditHint": {
+    "description": "IP-Hint-Example",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userTitle": "Setup Personal Information",
+  "@userTitle": {
+    "description": "User-Title-Setup Personal Information",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNicknameHint": "Nickname",
+  "@userNicknameHint": {
+    "description": "User-Hint-Nickname",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNickname": "Bookkeeping",
+  "@userNickname": {
+    "description": "User-Hint-Bookkeeping",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hintClickMore": "Click %s more times",
+  "@hintClickMore": {
+    "description": "User-Hint-Click",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleDetail": "Detail",
+  "@titleDetail": {
+    "description": "Title-Detail",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleAccount": "Account",
+  "@titleAccount": {
+    "description": "Title-Account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleSubject": "Subject",
+  "@titleSubject": {
+    "description": "Title-Subject",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleSetting": "Setting",
+  "@titleSetting": {
+    "description": "Title-Setting",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailTitleAdd": "Add Detail",
+  "@detailTitleAdd": {
+    "description": "Detail-Title-Add Detail",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailTitleEdit": "Modify Detail",
+  "@detailTitleEdit": {
+    "description": "Detail-Title-Modify Detail",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelSubject": "Subject",
+  "@detailLabelSubject": {
+    "description": "Detail-Label-Subject",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelAmount": "Amount",
+  "@detailLabelAmount": {
+    "description": "Detail-Label-Amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelSourceAccount": "From",
+  "@detailLabelSourceAccount": {
+    "description": "Detail-Label-Source Account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelDestAccount": "To",
+  "@detailLabelDestAccount": {
+    "description": "Detail-Label-Dest Account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelDate": "Date",
+  "@detailLabelDate": {
+    "description": "Detail-Label-Date",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailLabelRemark": "Remark",
+  "@detailLabelRemark": {
+    "description": "Detail-Label-Remark",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAccount": "Please create account first",
+  "@detailHintAccount": {
+    "description": "Detail-Hint-Account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintSubject": "Please create subject first",
+  "@detailHintSubject": {
+    "description": "Detail-Hint-Subject",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAmount": "Please input amount (required)",
+  "@detailHintAmount": {
+    "description": "Detail-Hint-Amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAmountNone": "Amount should not be empty",
+  "@detailHintAmountNone": {
+    "description": "Detail-Hint-Amount",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintAmountAccuracy": "Amount can only be accurate to two decimal places",
+  "@detailHintAmountAccuracy": {
+    "description": "Detail-Hint-Amount accuracy",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detailHintRemark": "Please input remark (optional)",
+  "@detailHintRemark": {
+    "description": "Detail-Hint-Remark",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountTitleAdd": "Add Account",
+  "@accountTitleAdd": {
+    "description": "Account-Title-Add Account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountTitleEdit": "Modify Account",
+  "@accountTitleEdit": {
+    "description": "Account-Title-Modify Account",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountLabelType": "Type",
+  "@accountLabelType": {
+    "description": "Account-Label-Type",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountLabelName": "Name",
+  "@accountLabelName": {
+    "description": "Account-Label-Name",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountLabelDesc": "Description",
+  "@accountLabelDesc": {
+    "description": "Account-Label-Description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintType": "Please input type (required)",
+  "@accountHintType": {
+    "description": "Account-Hint-Type",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintTypeNone": "Type should not be empty",
+  "@accountHintTypeNone": {
+    "description": "Account-Hint-Type",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintName": "Please input name (required)",
+  "@accountHintName": {
+    "description": "Account-Hint-Name",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintNameNone": "Name should not be empty",
+  "@accountHintNameNone": {
+    "description": "Account-Hint-Name",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountHintDesc": "Please input description (optional)",
+  "@accountHintDesc": {
+    "description": "Account-Hint-Description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectTitleAdd": "Add Subject",
+  "@subjectTitleAdd": {
+    "description": "Subject-Title-Add Subject",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectTitleEdit": "Modify Subject",
+  "@subjectTitleEdit": {
+    "description": "Subject-Title-Modify Subject",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectLabelTags": "Tags",
+  "@subjectLabelTags": {
+    "description": "Subject-Label-Tags",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectLabelName": "Name",
+  "@subjectLabelName": {
+    "description": "Subject-Label-Name",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectLabelDesc": "Description",
+  "@subjectLabelDesc": {
+    "description": "Subject-Label-Description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintLabel": "Please input label (required)",
+  "@subjectHintLabel": {
+    "description": "Subject-Hint-Label",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintName": "Please input name (required)",
+  "@subjectHintName": {
+    "description": "Subject-Hint-Name",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintDesc": "Please input description (optional)",
+  "@subjectHintDesc": {
+    "description": "Subject-Hint-Description",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintLabelNone": "Label should not be empty",
+  "@subjectHintLabelNone": {
+    "description": "Subject-Hint-Label",
+    "type": "text",
+    "placeholders": {}
+  },
+  "subjectHintNameNone": "Name should not be empty",
+  "@subjectHintNameNone": {
+    "description": "Subject-Hint-Name",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingFont": "Fonts",
+  "@settingFont": {
+    "description": "Setting-Label-Fonts",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingLanguage": "Language",
+  "@settingLanguage": {
+    "description": "Setting-Label-Language",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingTheme": "Theme",
+  "@settingTheme": {
+    "description": "Setting-Label-Theme",
+    "type": "text",
+    "placeholders": {}
+  },
+  "takePhoto": "Take photo",
+  "@takePhoto": {
+    "description": "Take photo",
+    "type": "text",
+    "placeholders": {}
+  },
+  "album": "Album",
+  "@album": {
+    "description": "Album",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading",
+    "type": "text",
+    "placeholders": {}
+  },
+  "empty": "Empty~",
+  "@empty": {
+    "description": "Empty",
+    "type": "text",
+    "placeholders": {}
+  },
+  "error": "Request error, please try again",
+  "@error": {
+    "description": "error",
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorNetwork": "Please retry after checking network connected~",
+  "@errorNetwork": {
+    "description": "error network",
+    "type": "text",
+    "placeholders": {}
+  }
+}

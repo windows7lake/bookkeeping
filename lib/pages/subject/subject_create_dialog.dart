@@ -1,3 +1,4 @@
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/util/dialog_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -85,7 +86,8 @@ class SubjectCreateDialog extends Dialog {
         child: Row(children: <Widget>[
           Icon(Icons.border_color, color: Colors.white, size: 20),
           Padding(padding: EdgeInsets.only(left: 15)),
-          Text("新增科目", style: textStyleTitle),
+          Text(IntlLocalizations.of(context).subjectTitleAdd,
+              style: textStyleTitle),
         ]),
       ),
 
@@ -94,7 +96,7 @@ class SubjectCreateDialog extends Dialog {
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
         child: Row(children: <Widget>[
           Text(
-            "标签：",
+            "${IntlLocalizations.of(context).subjectLabelTags}：",
             style: TextStyle(
               color: Theme.of(context).accentColor,
               fontSize: 14.0,
@@ -108,7 +110,7 @@ class SubjectCreateDialog extends Dialog {
               cursorColor: Theme.of(context).accentColor,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                hintText: '请输入标签（必填）',
+                hintText: IntlLocalizations.of(context).subjectHintTags,
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
                   borderSide: BorderSide(color: Theme.of(context).accentColor),
@@ -134,7 +136,7 @@ class SubjectCreateDialog extends Dialog {
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
         child: Row(children: <Widget>[
           Text(
-            "名称：",
+            "${IntlLocalizations.of(context).subjectLabelName}：",
             style: TextStyle(
               color: Theme.of(context).accentColor,
               fontSize: 14.0,
@@ -148,7 +150,7 @@ class SubjectCreateDialog extends Dialog {
               cursorColor: Theme.of(context).accentColor,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                hintText: '请输入名称（必填）',
+                hintText: IntlLocalizations.of(context).subjectHintName,
                 hintStyle: textStyleEditHint,
                 border: UnderlineInputBorder(
                   borderSide: BorderSide(color: Theme.of(context).accentColor),
@@ -178,7 +180,7 @@ class SubjectCreateDialog extends Dialog {
             Padding(
               padding: EdgeInsets.only(top: 5),
               child: Text(
-                "描述：",
+                "${IntlLocalizations.of(context).subjectLabelDesc}：",
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontSize: 14.0,
@@ -192,7 +194,7 @@ class SubjectCreateDialog extends Dialog {
                 maxLines: 3,
                 cursorColor: Theme.of(context).accentColor,
                 decoration: InputDecoration(
-                  hintText: '请输入描述（可选）',
+                  hintText: IntlLocalizations.of(context).subjectHintDesc,
                   hintStyle: textStyleEditHint,
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -238,7 +240,8 @@ class SubjectCreateDialog extends Dialog {
               child: Container(
                 height: 50,
                 alignment: Alignment.center,
-                child: Text("添加", style: textStyleBtn),
+                child: Text(IntlLocalizations.of(context).hintAdd,
+                    style: textStyleBtn),
               ),
             ),
           ),
@@ -252,7 +255,8 @@ class SubjectCreateDialog extends Dialog {
               child: Container(
                 height: 50,
                 alignment: Alignment.center,
-                child: Text("取消", style: textStyleBtn),
+                child: Text(IntlLocalizations.of(context).hintCancel,
+                    style: textStyleBtn),
               ),
             ),
           ),

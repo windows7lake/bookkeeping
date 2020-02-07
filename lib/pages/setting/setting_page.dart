@@ -1,14 +1,39 @@
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/setting/locale_controller.dart';
 import 'package:bookkeeping/pages/setting/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => SettingPageState();
+}
+
+class SettingPageState extends State<SettingPage> {
+  ThemeController themeController;
+  LocaleController localeController;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // 初始化controller
+    final themeController = Provider.of<ThemeController>(context);
+    if (themeController != this.themeController) {
+      this.themeController = themeController;
+      this.themeController.init();
+    }
+    final localeController = Provider.of<LocaleController>(context);
+    if (localeController != this.localeController) {
+      this.localeController = localeController;
+      this.localeController.init();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('设置'),
+        title: Text(IntlLocalizations.of(context).titleSetting),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -22,8 +47,6 @@ class SettingPage extends StatelessWidget {
 
   Widget renderListView(BuildContext context) {
     var themeColor = Theme.of(context).accentColor;
-    var themeController = Provider.of<ThemeController>(context);
-    var localeController = Provider.of<LocaleController>(context);
     return Column(children: <Widget>[
       SizedBox(height: 10),
 
@@ -34,7 +57,7 @@ class SettingPage extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("字体切换"),
+              Text(IntlLocalizations.of(context).settingFont),
               Text(
                 ThemeController.fontName(
                   themeController.model.themeFontIndex,
@@ -72,7 +95,7 @@ class SettingPage extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("语言切换"),
+              Text(IntlLocalizations.of(context).settingLanguage),
               Text(
                 LocaleController.localeName(
                   localeController.model.localeIndex,
@@ -107,7 +130,7 @@ class SettingPage extends StatelessWidget {
       Material(
         color: Theme.of(context).cardColor,
         child: ExpansionTile(
-          title: Text("主题切换"),
+          title: Text(IntlLocalizations.of(context).settingTheme),
           leading: Icon(Icons.color_lens, color: themeColor),
           children: <Widget>[
             Padding(

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/network/api/api.dart';
 import 'package:bookkeeping/network/api/http_request.dart';
 import 'package:bookkeeping/pages/user/setup_ip_dialog.dart';
@@ -16,6 +17,7 @@ import 'package:bookkeeping/widget/dialog/image_picker_dialog.dart';
 import 'package:bookkeeping/widget/dialog/loading_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:sprintf/sprintf.dart';
 
 class UserController extends BaseController<UserModel> {
   BuildContext _context;
@@ -92,7 +94,10 @@ class UserController extends BaseController<UserModel> {
       lastDateTime = DateTime.now();
       if (times > 2) {
         ToastExt.cancel();
-        ToastExt.show("再点击${5 - times}次");
+        ToastExt.show(sprintf(
+          IntlLocalizations.of(_context).hintClickMore,
+          ["${5 - times}"],
+        ));
       }
       if (times > 4) {
         DialogExt.instance.showNewDialog(

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bookkeeping/util/log_ext.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/widget/switcher/common_state_page.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +92,7 @@ class _StateSwitcherState extends State<StateSwitcher> {
           onTap: () => onRetry(),
           child: CommonStatePage(
             image: "assets/images/state_empty.png",
-            text: "无数据~",
+            text: IntlLocalizations.of(context).empty,
           ),
         );
 
@@ -102,7 +102,7 @@ class _StateSwitcherState extends State<StateSwitcher> {
           onTap: () => onRetry(),
           child: CommonStatePage(
             image: "assets/images/state_error.png",
-            text: "请求错误，请重试",
+            text: IntlLocalizations.of(context).error,
           ),
         );
 
@@ -112,7 +112,7 @@ class _StateSwitcherState extends State<StateSwitcher> {
           onTap: () => onRetry(),
           child: CommonStatePage(
             image: "assets/images/state_error.png",
-            text: "网络连接错误，请检查后再重试",
+            text: IntlLocalizations.of(context).errorNetwork,
           ),
         );
 

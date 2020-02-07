@@ -1,5 +1,6 @@
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/network/api/api.dart';
 import 'package:bookkeeping/network/api/http_request.dart';
 import 'package:bookkeeping/pages/detail/detail_bean.dart';
@@ -127,7 +128,7 @@ class DetailController extends BaseController<DetailModel>
         notifyListeners();
       },
       errorCallBack: (error) {
-        ToastExt.show("删除失败");
+        ToastExt.show(IntlLocalizations.of(_context).hintDeleteFail);
       },
       commonCallBack: () => DialogExt.instance.hideDialog(_context),
     );
@@ -139,19 +140,19 @@ class DetailController extends BaseController<DetailModel>
       _context,
       CupertinoAlertDialog(
         content: Text(
-          "是否确认删除",
+          IntlLocalizations.of(_context).hintDeleteDialogTitle,
           style: TextStyle(fontSize: 16),
         ),
         actions: <Widget>[
           CupertinoDialogAction(
-            child: Text("是"),
+            child: Text(IntlLocalizations.of(_context).hintYes),
             onPressed: () {
               DialogExt.instance.showNewDialog(_context, LoadingDialog());
               deleteDetailItem(position);
             },
           ),
           CupertinoDialogAction(
-            child: Text("否"),
+            child: Text(IntlLocalizations.of(_context).hintNo),
             onPressed: () => DialogExt.instance.hideDialog(_context),
           )
         ],
@@ -190,20 +191,22 @@ class DetailController extends BaseController<DetailModel>
 
   /// 检查并提交数据
   void checkAndSubmitData() {
-    if (model.subjectSelected?.name == "请先创建科目") {
-      ToastExt.show("请先创建科目");
+    if (model.subjectSelected?.name ==
+        IntlLocalizations.of(_context).detailHintSubject) {
+      ToastExt.show(IntlLocalizations.of(_context).detailHintSubject);
       return;
     }
-    if (model.sourceAccountSelected?.name == "请先创建账户") {
-      ToastExt.show("请先创建账户");
+    if (model.sourceAccountSelected?.name ==
+        IntlLocalizations.of(_context).detailHintAccount) {
+      ToastExt.show(IntlLocalizations.of(_context).detailHintAccount);
       return;
     }
     if (model.amountEditingController.text.isEmpty) {
-      ToastExt.show("金额不能为空");
+      ToastExt.show(IntlLocalizations.of(_context).detailHintAmountNone);
       return;
     }
     if (!RegexExt.isMoney(model.amountEditingController.text)) {
-      ToastExt.show("金额只能精确到小数点后两位");
+      ToastExt.show(IntlLocalizations.of(_context).detailHintAmountAccuracy);
       return;
     }
     DialogExt.instance.showNewDialog(_context, LoadingDialog());

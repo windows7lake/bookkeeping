@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/pages/detail/detail_controller.dart';
 import 'package:bookkeeping/pages/detail/detail_skeleton.dart';
 import 'package:bookkeeping/widget/switcher/state_switcher.dart';
@@ -52,7 +53,7 @@ class DetailPageState extends State<DetailPage> {
       brightness: Brightness.dark,
       centerTitle: true,
       title: Text(
-        "明细",
+        IntlLocalizations.of(context).titleDetail,
         style: TextStyle(color: Colors.white),
       ),
       leading: Padding(
@@ -79,7 +80,7 @@ class DetailPageState extends State<DetailPage> {
         IconButton(
           icon: Icon(Icons.add, color: Colors.white),
           color: Colors.black,
-          tooltip: "新增",
+          tooltip: IntlLocalizations.of(context).hintAdd,
           onPressed: () => _controller.onAddBtnClick(),
         )
       ],
@@ -122,27 +123,33 @@ class DetailPageState extends State<DetailPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "科目：${itemData?.subjectName ?? ""}",
+                "${IntlLocalizations.of(context).detailLabelSubject}"
+                "：${itemData?.subjectName ?? ""}",
                 style: textStyleContent,
               ),
               Text(
-                "金额：￥${_controller.formatMoney(itemData?.amount)}",
+                "${IntlLocalizations.of(context).detailLabelAmount}"
+                "：￥${_controller.formatMoney(itemData?.amount)}",
                 style: textStyleContent,
               ),
               Text(
-                "来源账户：${itemData?.sourceAccountName ?? ""}",
+                "${IntlLocalizations.of(context).detailLabelSourceAccount}"
+                "：${itemData?.sourceAccountName ?? ""}",
                 style: textStyleContent,
               ),
               Text(
-                "目标账户：${itemData?.destAccountName ?? ""}",
+                "${IntlLocalizations.of(context).detailLabelDestAccount}"
+                "：${itemData?.destAccountName ?? ""}",
                 style: textStyleContent,
               ),
               Text(
-                "日期：${_controller.getFormatDate(itemData?.updatedAt)}",
+                "${IntlLocalizations.of(context).detailLabelDate}"
+                "：${_controller.getFormatDate(itemData?.updatedAt)}",
                 style: textStyleContent,
               ),
               Text(
-                "备注：${itemData?.remark ?? ""}",
+                "${IntlLocalizations.of(context).detailLabelRemark}"
+                "：${itemData?.remark ?? ""}",
                 style: textStyleContent,
               ),
             ],
@@ -162,7 +169,8 @@ class DetailPageState extends State<DetailPage> {
                 ),
                 onPressed: () =>
                     _controller.deleteDetailItemOperation(position),
-                child: Text("删除", style: textStyleDelete),
+                child: Text(IntlLocalizations.of(context).hintDelete,
+                    style: textStyleDelete),
               ),
             ),
           ),

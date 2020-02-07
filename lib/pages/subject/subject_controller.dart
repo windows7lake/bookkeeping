@@ -1,6 +1,7 @@
 import 'package:bookkeeping/cache/db/subject_dao.dart';
 import 'package:bookkeeping/cache/sp/sp_manager.dart';
 import 'package:bookkeeping/cache/sp/sp_params.dart';
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/network/api/api.dart';
 import 'package:bookkeeping/network/api/http_request.dart';
 import 'package:bookkeeping/pages/subject/subject_bean.dart';
@@ -109,11 +110,11 @@ class SubjectController extends BaseController<SubjectModel>
   /// 检查并提交数据
   void checkAndSubmitData() {
     if (model.tagsEditingController.text.isEmpty) {
-      ToastExt.show("标签不能为空");
+      ToastExt.show(IntlLocalizations.of(_context).subjectHintTagsNone);
       return;
     }
     if (model.nameEditingController.text.isEmpty) {
-      ToastExt.show("名称不能为空");
+      ToastExt.show(IntlLocalizations.of(_context).subjectHintNameNone);
       return;
     }
     DialogExt.instance.showNewDialog(_context, LoadingDialog());

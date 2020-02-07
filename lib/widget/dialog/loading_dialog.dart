@@ -1,3 +1,4 @@
+import 'package:bookkeeping/l10n/intl_localizations.dart';
 import 'package:bookkeeping/util/string_ext.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,9 @@ class LoadingDialog extends Dialog {
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: Text(
-                    StringExt.isNullOrEmpty(text) ? "加载中..." : text,
+                    StringExt.isNullOrEmpty(text)
+                        ? IntlLocalizations.of(context).loading
+                        : text,
                     style: TextStyle(fontSize: 12.0),
                   ),
                 ),
